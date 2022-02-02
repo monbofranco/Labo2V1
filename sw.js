@@ -13,6 +13,7 @@ this.addEventListener('install', function(event) {
           './customv1.jpeg',
           './custom1.jpeg',
           './background.jpeg',
+          './manifest.json'
 
 
         
