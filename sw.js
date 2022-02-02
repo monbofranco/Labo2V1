@@ -4,18 +4,15 @@ this.addEventListener('install', function(event) {
       caches.open('v1').then(function(cache) {
         console.log('[Service Worker] Mise en cache globale: app shell et contenu et tout et tout');
         return cache.addAll([
-          'index.html',
-          'style.css',
-          'index.js',
-          'banner1.jpg',
-          'banneer2.webp',
-          'beginnerguide.jpeg',
-   
- 
-          'customv1.jpeg',
-          'custom1.jpeg',
-
-          'background.jpeg',
+          './index.html',
+          './style.css',
+          './index.js',
+          './banner1.jpg',
+          './banneer2.webp',
+          './beginnerguide.jpeg',
+          './customv1.jpeg',
+          './custom1.jpeg',
+          './background.jpeg',
 
 
         
