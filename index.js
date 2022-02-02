@@ -1,10 +1,12 @@
+
+
 if('serviceWorker' in navigator) {
   navigator.serviceWorker.register('sw.js').then(function(reg) {
       // registration worked
-      console.log('Enregsistrement réussi !. Scope is ' + reg.scope);
+      console.log('Yes ! Enregsistrement réussi !. Scope is ' + reg.scope);
   }).catch(function(error) {
       // registration failed
-      console.log('Erreur ' + error);
+      console.log('Aie Aie erreur ' + error);
     });
   };
 
@@ -33,7 +35,7 @@ console.log(`'beforeinstallprompt' a été déclenché !`);
 // Possible de faire autrement, mais le toast de bootstrap est assez simple a utiliser
 
 function installApp() {
-console.log('ça marche?');
+console.log('hey ma fenetre marche!');
 const fenetre = document.getElementById('message')
 const toast = new bootstrap.Toast(fenetre, {delay: 6000}) //reste affichée 6 secondes seulement
 toast.show();
