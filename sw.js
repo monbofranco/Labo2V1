@@ -18,7 +18,7 @@ this.addEventListener('install', function(event) {
             'icone.jpg',
             'background.jpeg',
             'background.webp',
-            
+            'manifest.json',
         ]);
       })
     );
