@@ -19,6 +19,7 @@ this.addEventListener('install', function(event) {
             'background.jpeg',
             'background.webp',
             'manifest.json',
+            'sw.js',
         ]);
       })
     );
