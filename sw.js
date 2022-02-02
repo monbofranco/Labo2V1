@@ -10,16 +10,15 @@ this.addEventListener('install', function(event) {
           'banner1.jpg',
           'banneer2.webp',
           'beginnerguide.jpeg',
-          'custom1.jpeg',
-          'icon-512x512.png',
-          'icons-1.7.2/font/bootstrap-icons.css',
+   
+ 
           'customv1.jpeg',
           'custom1.jpeg',
-          'icone.jpg',
+
           'background.jpeg',
-          'background.webp',
-          'manifest.json',
-          'sw.js',
+
+
+        
         ]);
       })
     );
