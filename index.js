@@ -13,20 +13,14 @@ if('serviceWorker' in navigator) {
 let deferredPrompt;
 
 window.addEventListener('beforeinstallprompt', (e) => {
-// Empêcher la mini-barre d'information d'apparaître sur mobile si deja installée
-e.preventDefault();
-// Réserve l'événement pour qu'il puisse être déclenché plus tard
-deferredPrompt = e;
-// Informe l'utilisateur qu'il peut installer la PWA avec une fenêtre
-installApp();
-
-console.log(`'beforeinstallprompt' a été déclenché !`);
-
-// Fonction qui renvoie a l'installation de l'application quand le boutton "Installer" est cliqué !
-  appButton.addEventListener('click', function() {
-    deferredPrompt.prompt();
-  })
-
+  // Prevent the mini-infobar from appearing on mobile
+  e.preventDefault();
+  // Stash the event so it can be triggered later.
+  deferredPrompt = e;
+  // Update UI notify the user they can install the PWA
+  showInstallPromotion();
+  // Optionally, send analytics event that PWA install promo was shown.
+  console.log(`'beforeinstallprompt' event was fired.`);
 });
 
 // Fonction qui affiche une fenêtre a l'ouverture de la page pour informer l'utilisateur de la possibilité d'installer cette PWA
@@ -38,3 +32,16 @@ const fenetre = document.getElementById('message')
 const toast = new bootstrap.Toast(fenetre, {delay: 6000}) //reste affichée 6 secondes seulement
 toast.show();
 };
+
+buttonInstall.addEventListener('click', async () => {
+  // Hide the app provided install promotion
+  hideInstallPromotion();
+  // Show the install prompt
+  deferredPrompt.prompt();
+  // Wait for the user to respond to the prompt
+  const { outcome } = await deferredPrompt.userChoice;
+  // Optionally, send analytics event with outcome of user choice
+  console.log(`User response to the install prompt: ${outcome}`);
+  // We've used the prompt, and can't use it again, throw it away
+  deferredPrompt = null;
+});
